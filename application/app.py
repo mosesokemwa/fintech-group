@@ -7,10 +7,12 @@ api = Api(app)
 app.config.from_object('config.Config')
 db = SQLAlchemy(app)
 
-from views.students import StudentsListView, StudentsSingleView
+from views.students import StudentsListView, StudentsSingleView, StreamListView
 
 api.add_resource(StudentsListView, '/students')
 api.add_resource(StudentsSingleView, '/students/<int:id>')
+api.add_resource(StreamListView, '/stream')
+api.add_resource(StreamListView, '/stream/<int:id>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
